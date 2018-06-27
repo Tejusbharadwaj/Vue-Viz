@@ -1,0 +1,40 @@
+<template>
+  <div id="chart"/>
+</template>
+
+<script>
+import drawTree from '../helpers/NewChart';
+
+export default {
+  props: {
+    graphData: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  created() {
+    drawTree(this.graphData);
+  },
+};
+</script>
+
+
+<style>
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text { font: 12px sans-serif; }
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+</style>
